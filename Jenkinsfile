@@ -32,4 +32,17 @@ EOF
     customImage.push()
     }
 }    
+stage("test") {
+    slackColor = "good"
+    end = "success"
+    try {
+      echo "hello world"
+    } catch (Exception e) {
+      slackColor = "danger"
+      end = "failure"
+      currentBuild.result = "FAILURE"
+    } finally {
+        slackSend color: slackColor, message: "Build finished with ${end}: ${env.JOB_NAME} #${env.BUILD_NUMBER}"
+    }
+}
 }
