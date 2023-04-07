@@ -10,7 +10,7 @@ node("linux") {
 
     FROM ubuntu:latest
 
-    RUN touch file-01.txt
+    RUN touch file-02.txt
 
 EOF
 
