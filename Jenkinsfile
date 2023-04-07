@@ -1,6 +1,4 @@
 
-{
-
   customImage = ""
 
   stage("create dockerfile") {
@@ -37,5 +35,5 @@ EOF
     customImage.push()
     }
 }    
-}
+
 
