@@ -1,4 +1,5 @@
-node("linux") {
+agent any
+stages {
 
   customImage = ""
 
