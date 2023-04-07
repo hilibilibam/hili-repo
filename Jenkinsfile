@@ -1,5 +1,5 @@
-agent any
-stages {
+
+{
 
   customImage = ""
 
