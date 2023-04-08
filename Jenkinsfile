@@ -3,6 +3,20 @@ pipeline {
   agent any
   customImage = ""
 
+  stage("parameter") {
+        properties([parameters([choice(choices: ['enabled', 'disabled'], name: 'deploy')])])
+    }
+    stage('choice') {
+        def deploy = params.deploy
+        if (deploy == 'enabled') {
+            echo deploy
+            sh "sudo docker run -t -d --rm training/webapp:latest"
+        } else {
+            echo "no other actions will be performed"
+        }
+    }
+}
+  
   stage("create dockerfile") {
 
     sh """
